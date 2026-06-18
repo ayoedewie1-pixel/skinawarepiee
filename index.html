@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kenali Jenis Kulitmu</title>
+  
+  <!-- Mengambil Font dari Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- SEMUA DESAIN (CSS) DI MASUKKAN KE SINI -->
+  <style>
+    /* RESET & BASE STYLES */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #fcfbf7;
+      color: #333333;
+      line-height: 1.6;
+    }
+
+    /* HEADER */
+    header {
+      padding: 20px 40px;
+      background-color: #ffffff;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #606c38;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      text-align: center;
+      padding: 80px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      color: #283618;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      color: #666;
+    }
+
+    /* CARDS SECTION */
+    .skin-types {
+      padding: 60px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .skin-types h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 32px;
+      margin-bottom: 40px;
+      color: #283618;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #f0ede4;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(96, 108, 56, 0.1);
+      border-color: #b7b7a4;
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      color: #606c38;
+      margin-bottom: 15px;
+    }
+
+    .card .desc {
+      font-size: 15px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+
+    .card .tag {
+      font-size: 13px;
+      background-color: #f0f2eb;
+      color: #4f5d2f;
+      padding: 8px 12px;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    /* QUIZ SECTION */
+    .quiz-section {
+      background-color: #f2f0e6;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .quiz-section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 32px;
+      color: #283618;
+      margin-bottom: 15px;
+    }
+
+    .quiz-section p {
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+      color: #555;
+    }
+
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .quiz-btn {
+      background-color: #ffffff;
+      border: 2px solid #e0ded5;
+      padding: 16px 24px;
+      border-radius: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      color: #444;
+      cursor: pointer;
+      text-align: left;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-btn:hover {
+      background-color: #606c38;
+      color: #ffffff;
+      border-color: #606c38;
+    }
+
+    /* HASIL KUIS */
+    .result-box {
+      margin-top: 40px;
+      padding: 25px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+      border-left: 5px solid #606c38;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+      animation: fadeIn 0.5s ease;
+    }
+
+    .result-box h3 {
+      color: #283618;
+      margin-bottom: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* FAQ SECTION */
+    .faq-section {
+      padding: 80px 20px;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-section h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      font-size: 32px;
+      color: #283618;
+      margin-bottom: 40px;
+    }
+
+    .faq-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .faq-item {
+      background-color: #ffffff;
+      border: 1px solid #e0ded5;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.01);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #283618;
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background-color: #fcfbf7;
+    }
+
+    .faq-question span {
+      font-size: 20px;
+      color: #606c38;
+      transition: transform 0.3s ease;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+      background-color: #fcfbf7;
+    }
+
+    .faq-answer p {
+      padding: 0 20px 20px 20px;
+      color: #555;
+      font-size: 15px;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 200px;
+    }
+
+    .faq-item.active .faq-question span {
+      transform: rotate(45deg);
+    }
+
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 14px;
+      color: #888;
+      background-color: #ffffff;
+      border-top: 1px solid #f0ede4;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">SkinAware</div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <h1>Kenali Jenis Kulitmu,<br>Pahami Kebutuhannya.</h1>
+    <p>Sebelum memilih produk skincare, langkah paling awal dan krusial adalah mengetahui apa jenis kulit wajahmu yang sebenarnya.</p>
+  </section>
+
+  <!-- MAIN CARDS SECTION -->
+  <section class="skin-types">
+    <h2>4 Jenis Kulit Utama</h2>
+    <div class="grid-container">
+      
+      <!-- Normal -->
+      <div class="card">
+        <h3>Kulit Normal</h3>
+        <p class="desc">Kandungan air dan minyak seimbang. Jarang mengalami masalah sensitivitas yang parah.</p>
+        <div class="tag">Ciri: Pori-pori samar, halus, jarang berjerawat.</div>
+      </div>
+
+      <!-- Kering -->
+      <div class="card">
+        <h3>Kulit Kering</h3>
+        <p class="desc">Produksi sebum (minyak alami) rendah, membuat kulit kehilangan kelembapan.</p>
+        <div class="tag">Ciri: Terasa tertarik, kasar, kemerahan, atau bersisik.</div>
+      </div>
+
+      <!-- Berminyak -->
+      <div class="card">
+        <h3>Kulit Berminyak</h3>
+        <p class="desc">Kelenjar sebasea terlalu aktif menghasilkan minyak berlebih di seluruh wajah.</p>
+        <div class="tag">Ciri: Mengkilap, pori-pori besar, rentan komedo & jerawat.</div>
+      </div>
+
+      <!-- Kombinasi -->
+      <div class="card">
+        <h3>Kulit Kombinasi</h3>
+        <p class="desc">Perpaduan antara area berminyak (biasanya di T-Zone: dahi, hidung, dagu) dan kering di pipi.</p>
+        <div class="tag">Ciri: T-Zone mengkilap, namun pipi terasa kering/normal.</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- QUIZ SECTION -->
+  <section class="quiz-section">
+    <h2>Cek Jenis Kulitmu (Kuis Singkat)</h2>
+    <p>Cuci mukamu dengan sabun pembersih yang lembut, keringkan, lalu tunggu selama 30 menit tanpa memakai skincare apapun. Bagaimana kondisi wajahmu sekarang?</p>
+    
+    <div class="quiz-options">
+      <button class="quiz-btn" onclick="checkSkin('normal')">A. Terasa nyaman, pas, tidak terlalu berminyak atau kering.</button>
+      <button class="quiz-btn" onclick="checkSkin('dry')">B. Terasa kencang, kaku, kering, seperti tertarik.</button>
+      <button class="quiz-btn" onclick="checkSkin('oily')">C. Terlihat sangat mengkilap dan berminyak di seluruh wajah.</button>
+      <button class="quiz-btn" onclick="checkSkin('combination')">D. Berminyak di dahi dan hidung, tapi pipi terasa kering.</button>
+    </div>
+
+    <!-- Tempat Hasil Kuis Muncul -->
+    <div id="quiz-result" class="result-box hidden">
+      <h3>Hasil Analisis:</h3>
+      <p id="result-text"></p>
+    </div>
+  </section>
+
+  <!-- SECTION TANYA JAWAB (FAQ) -->
+  <section class="faq-section">
+    <h2>Tanya Jawab Seputar Jenis Kulit</h2>
+    
+    <div class="faq-container">
+      
+      <!-- Pertanyaan 1 -->
+      <div class="faq-item">
+        <button class="faq-question">Apakah jenis kulit kita bisa berubah seiring waktu? <span>+</span></button>
+        <div class="faq-answer">
+          <p><strong>Ya, bisa banget!</strong> Jenis kulit tidak permanen. Perubahan hormon (seperti saat remaja, hamil, atau menopause), faktor usia, cuaca/iklim tempat tinggal, stres, hingga kesalahan penggunaan produk skincare bisa mengubah kondisi kulitmu.</p>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 2 -->
+      <div class="faq-item">
+        <button class="faq-question">Apa bedanya kulit kering (dry skin) dengan kulit dehidrasi? <span>+</span></button>
+        <div class="faq-answer">
+          <p>Kulit kering adalah <strong>jenis kulit bawaan</strong> karena kekurangan produksi minyak alami. Sedangkan kulit dehidrasi adalah <strong>kondisi kulit sementara</strong> karena kekurangan kadar air di dalam kulit. Kulit yang berminyak pun bisa mengalami dehidrasi jika skin barrier-nya rusak.</p>
+        </div>
+      </div>
+
+      <!-- Pertanyaan 3 -->
+      <div class="faq-item">
+        <button class="faq-question">Seberapa sering saya harus mengecek jenis kulit saya? <span>+</span></button>
+        <div class="faq-answer">
+          <p>Disarankan untuk mengecek ulang setiap beberapa bulan sekali, atau ketika kamu merasa produk skincare yang biasa kamu pakai tiba-tiba tidak bekerja dengan baik atau malah menimbulkan reaksi negatif.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 SkinAware Project. Dibuat dengan ❤ di CodePen.</p>
+  </footer>
+
+
+  <!-- SEMUA FITUR INTERAKTIF (JAVASCRIPT) DI MASUKKAN KE SINI -->
+  <script>
+    // Fungsi Kuis
+    function checkSkin(type) {
+      const resultBox = document.getElementById('quiz-result');
+      const resultText = document.getElementById('result-text');
+      
+      resultBox.classList.remove('hidden');
+      
+      if (type === 'normal') {
+        resultText.innerHTML = "<strong>Kulitmu cenderung NORMAL.</strong> Pertahankan kondisi ini dengan basic skincare (cleanser, moisturizer, sunscreen) agar kulit tetap sehat dan terhidrasi.";
+      } else if (type === 'dry') {
+        resultText.innerHTML = "<strong>Kulitmu cenderung KERING.</strong> Kulitmu butuh kelembapan ekstra. Cari skincare yang mengandung <em>Hyaluronic Acid, Ceramide,</em> atau <em>Glycerin</em> untuk memperkuat skin barrier.";
+      } else if (type === 'oily') {
+        resultText.innerHTML = "<strong>Kulitmu cenderung BERMINYAK.</strong> Fokus pada produk penyeimbang minyak berlebih dan pembersih pori-pori. Kandungan seperti <em>Salicylic Acid (BHA), Niacinamide,</em> atau <em>Clay</em> sangat cocok untukmu.";
+      } else if (type === 'combination') {
+        resultText.innerHTML = "<strong>Kulitmu cenderung KOMBINASI.</strong> Kamu mungkin perlu teknik 'multi-masking' atau menggunakan pelembap bertekstur gel di area T-Zone yang berminyak dan tekstur cream di area pipi yang kering.";
+      }
+      
+      resultBox.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    // Fungsi Tanya Jawab (FAQ Accordion)
+    const faqQuestions = document.querySelectorAll('.faq-question');
+
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const faqItem = question.parentElement;
+        
+        faqItem.classList.toggle('active');
+        
+        faqQuestions.forEach(otherQuestion => {
+          if (otherQuestion !== question) {
+            otherQuestion.parentElement.classList.remove('active');
+          }
+        });
+      });
+    });
+  </script>
+
+</body>
+    </html>
